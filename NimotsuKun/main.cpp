@@ -29,3 +29,7 @@ void draw( const Object* state, int w, int h );
 void update( Object* state, char input, int w, int h );
 bool checkClear( const Object* state, int w, int h );
 
+
+int main(){
+
+}
