@@ -31,5 +31,7 @@ bool checkClear( const Object* state, int w, int h );
 
 
 int main(){
-
+	//状態配列確保
+	Object* state = new Object[gstageWidth * gStageHeight];
+	//ステージ初期化
 }
