@@ -73,11 +73,30 @@ void initialize(Object* state, int width, int/*height*/, const char* stageData){
 	while (*d != '\0'){ //NULL文字でない間
 		Object t;
 		switch (*d){
-		case '#':t = OBJ_WALL; break;
-		case ' ':t = OBJ_SPACE; break;
-	
+		case '#': t = OBJ_WALL; break;
+		case ' ': t = OBJ_SPACE; break;
+		case 'o': t = OBJ_BLOCK; break;
+		case 'O': t = OBJ_BLOCK_ON_GOAL; break;
+		case '.': t = OBJ_GOAL; break;
+		case 'p': t = OBJ_MAN; break;
+		case 'P': t = OBJ_MAN_ON_GOAL; break;
+
+		case '\n':  //次の行へ
+			x = 0; //xを左端に戻す
+			++y; //yは1段下へ
+			t = OBJ_UNKNOWN;
+			break;
+
+		default: t = OBJ_UNKNOWN; break; //不正データ
+		}
+		++d;
+		if (t != OBJ_UNKNOWN){
+			state[y*width + x] = t;
+			++x;
+		}
 
 	}
+
 }
 
 
